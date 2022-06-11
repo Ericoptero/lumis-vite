@@ -2,6 +2,9 @@
  * @type {import('vite').UserConfig}
 */
 const { resolve } = require('path')
+import handlebars from 'vite-plugin-handlebars';
+
+import { pageData } from './src/partials/partialsConfig';
 
 const config = {
   root: 'src',
@@ -20,6 +23,12 @@ const config = {
       },
     },
   },
+  plugins: [handlebars({
+    context(pagePath) {
+      return pageData[pagePath];
+    },
+    partialDirectory: resolve(__dirname, 'src/partials'),
+  })]
 }
 
 export default config
