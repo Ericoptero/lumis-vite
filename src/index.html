@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Evolo WebSite</title>
+    {{> head }}
 </head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    {{> preloader}}
+    
+    {{> navbar}}
 
-<body>
-  {{title}}
-  {{> header }}
-  <div id="app"></div>
-  <div id="post"></div>
-  <img src="./assets/mobile-logo.svg" alt="Logo">
-  <img src="./assets/desktop-logo.svg" alt="Logo">
-  <img src="./assets/apcef-logo.png" alt="Logo">
-  <img src="./assets/acontece-na-apcef-1.jpg" alt="">
-  <script type="module" src="./script/main.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="module" src="./script/vendors/jquery.validate.min.js"></script>
-  <script type="module" src="./script/vendors/jquery.mask.min.js"></script>
+    {{> sections/header}}
+
+    {{> sections/customers}}
+
+    {{> sections/services}}
+    
+    {{> sections/details}}
+
+    {{> sections/pricing}}
+
+    {{> sections/request}}
+
+    {{> sections/video}}
+
+    {{> sections/testimonials}}
+
+    {{> sections/about}}
+
+    {{> sections/contact}}
+
+    {{> footer}}
+
+    {{> scripts }}
 </body>
-
 </html>
