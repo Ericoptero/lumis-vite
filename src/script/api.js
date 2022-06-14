@@ -1,9 +1,9 @@
-import axios from 'axios';
+import { get } from 'axios';
 
 async function getPost(id) {
   let articles = '';
 
-  const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts?userId=10');
+  const { data } = await get('https://jsonplaceholder.typicode.com/posts?userId=10');
 
   data.forEach(post => {
     articles += `
@@ -15,7 +15,7 @@ async function getPost(id) {
     console.log(articles)
   });
 
-  document.querySelector('#post').innerHTML = articles;
+  document.querySelector('#app').innerHTML = articles;
 }
 
 console.log('teste')
