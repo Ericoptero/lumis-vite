@@ -6,13 +6,16 @@ import handlebars from 'vite-plugin-handlebars';
 
 const config = {
   root: 'src',
+  base: '',
   build: {
-    outDir: '../dist',
+    outDir: '../dist/',
     rollupOptions: {
+      // Páginas HTML
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        'terms-conditions': resolve(__dirname, 'src/terms-conditions.html'),
         'privacy-policy': resolve(__dirname, 'src/privacy-policy.html'),
+        'terms-conditions': resolve(__dirname, 'src/terms-conditions.html'),
+        api: resolve(__dirname, 'src/api.html')
       },
       output: {
         entryFileNames: `assets/[name].js`,
@@ -22,6 +25,7 @@ const config = {
     },
   },
   resolve: {
+    // Apelido para o url() da pasta src em arquivos SASS/SCSS. ex: url('@/assets/imagem.png')
     alias: {
       '@': resolve(__dirname, 'src'),
     }
@@ -34,6 +38,7 @@ const config = {
   })]
 }
 
+// Contexto com variaveis que podem ser usadas em páginas HTML ou em partials. ex: {{title}}
 const pageData = {
   '/index.html': {
     title: 'Página Inicial',
@@ -43,6 +48,9 @@ const pageData = {
   },
   '/privacy-policy.html': {
     title: 'Política e privacidade',
+  },
+  'api.html': {
+    title: 'Chamada API',
   }
 }
 
